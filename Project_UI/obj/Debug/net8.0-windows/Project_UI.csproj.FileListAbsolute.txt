@@ -1,0 +1,14 @@
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\bin\Debug\net8.0-windows\Project_UI.exe
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\bin\Debug\net8.0-windows\Project_UI.deps.json
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\bin\Debug\net8.0-windows\Project_UI.runtimeconfig.json
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\bin\Debug\net8.0-windows\Project_UI.dll
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\bin\Debug\net8.0-windows\Project_UI.pdb
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\obj\Debug\net8.0-windows\Project_UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\obj\Debug\net8.0-windows\Project_UI.AssemblyInfoInputs.cache
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\obj\Debug\net8.0-windows\Project_UI.AssemblyInfo.cs
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\obj\Debug\net8.0-windows\Project_UI.csproj.CoreCompileInputs.cache
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\obj\Debug\net8.0-windows\Project_UI.dll
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\obj\Debug\net8.0-windows\refint\Project_UI.dll
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\obj\Debug\net8.0-windows\Project_UI.pdb
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\obj\Debug\net8.0-windows\Project_UI.genruntimeconfig.cache
+C:\Users\Akkarin\RiderProjects\Project_UI\Project_UI\obj\Debug\net8.0-windows\ref\Project_UI.dll
