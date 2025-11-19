@@ -12,6 +12,15 @@
       <Compile Update="Pop_Up.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="CajaUI.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormPanel.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Pop_UpProducto.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

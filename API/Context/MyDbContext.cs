@@ -16,7 +16,7 @@ public partial class MyDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Detalle_Orden> DetalleOrdenes { get; set; }
+    public virtual DbSet<Detalle_Orden> Detalle_Orden { get; set; }
 
     public virtual DbSet<Factura> Facturas { get; set; }
 
@@ -78,9 +78,7 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.FechaOrden)
                 .HasColumnType("datetime")
                 .HasColumnName("Fecha_Orden");
-            entity.Property(e => e.OrdenStatus)
-                .HasMaxLength(1)
-                .HasColumnName("Orden_Status");
+            entity.Property(e => e.OrdenStatus).HasColumnName("Orden_Status");
         });
 
         modelBuilder.Entity<Producto>(entity =>

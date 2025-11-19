@@ -1,8 +1,8 @@
 ﻿namespace Project_UI;
 
-public partial class Pop_Up : Form
+public partial class Pop_UpProducto : Form
 {
-    public Pop_Up()
+    public Pop_UpProducto()
     {
         InitializeComponent();
     }
@@ -10,6 +10,12 @@ public partial class Pop_Up : Form
 
     private void btnCompletar_Click(object sender, EventArgs e)
     {
+        if (numSelector.Value < 1)
+        {
+            MessageBox.Show("Cantidad invalida");
+            this.DialogResult = DialogResult.TryAgain;
+            return;
+        }
         this.DialogResult = DialogResult.OK;
         this.Close();
     }
@@ -19,6 +25,7 @@ public partial class Pop_Up : Form
     {
         this.Close();
     }
+
 
     private void btnCancelar_Click(object sender, EventArgs e)
     {

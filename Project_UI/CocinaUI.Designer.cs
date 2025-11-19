@@ -40,14 +40,14 @@ partial class CocinaUI
         OrderPanel.Size = new System.Drawing.Size(1904, 1041);
         OrderPanel.TabIndex = 0;
         // 
-        // Form1
+        // CocinaUI
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(1904, 1041);
         Controls.Add(OrderPanel);
         Text = "Bar y Restaurante";
-        Load += Form1_Load;
+        Load += CocinaUI_Load;
         ResumeLayout(false);
     }
 

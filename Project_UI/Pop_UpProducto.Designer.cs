@@ -2,7 +2,7 @@
 
 namespace Project_UI;
 
-partial class Pop_Up
+partial class Pop_UpProducto
 {
     /// <summary>
     /// Required designer variable.
@@ -34,8 +34,8 @@ partial class Pop_Up
         lblText = new System.Windows.Forms.Label();
         btnCompletar = new System.Windows.Forms.Button();
         btnCancelar = new System.Windows.Forms.Button();
-        nudCantidad = new System.Windows.Forms.NumericUpDown();
-        ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
+        numSelector = new System.Windows.Forms.NumericUpDown();
+        ((System.ComponentModel.ISupportInitialize)numSelector).BeginInit();
         SuspendLayout();
         // 
         // lblText
@@ -43,17 +43,17 @@ partial class Pop_Up
         lblText.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
         lblText.Location = new System.Drawing.Point(12, 9);
         lblText.Name = "lblText";
-        lblText.Size = new System.Drawing.Size(360, 33);
+        lblText.Size = new System.Drawing.Size(360, 32);
         lblText.TabIndex = 0;
-        lblText.Text = "Seleccione Cantidad";
+        lblText.Text = "Seleccione la cantidad";
         lblText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
         // btnCompletar
         // 
         btnCompletar.BackColor = System.Drawing.Color.Lime;
-        btnCompletar.Location = new System.Drawing.Point(62, 110);
+        btnCompletar.Location = new System.Drawing.Point(62, 113);
         btnCompletar.Name = "btnCompletar";
-        btnCompletar.Size = new System.Drawing.Size(91, 39);
+        btnCompletar.Size = new System.Drawing.Size(91, 36);
         btnCompletar.TabIndex = 1;
         btnCompletar.Text = "Completar";
         btnCompletar.UseVisualStyleBackColor = false;
@@ -62,38 +62,38 @@ partial class Pop_Up
         // btnCancelar
         // 
         btnCancelar.BackColor = System.Drawing.Color.Red;
-        btnCancelar.Location = new System.Drawing.Point(228, 110);
+        btnCancelar.Location = new System.Drawing.Point(228, 113);
         btnCancelar.Name = "btnCancelar";
-        btnCancelar.Size = new System.Drawing.Size(91, 39);
+        btnCancelar.Size = new System.Drawing.Size(91, 36);
         btnCancelar.TabIndex = 2;
         btnCancelar.Text = "Cancelar";
         btnCancelar.UseVisualStyleBackColor = false;
         btnCancelar.Click += btnCancelar_Click;
         // 
-        // nudCantidad
+        // numSelector
         // 
-        nudCantidad.Location = new System.Drawing.Point(101, 61);
-        nudCantidad.Name = "nudCantidad";
-        nudCantidad.Size = new System.Drawing.Size(173, 23);
-        nudCantidad.TabIndex = 3;
+        numSelector.Location = new System.Drawing.Point(109, 63);
+        numSelector.Name = "numSelector";
+        numSelector.Size = new System.Drawing.Size(151, 23);
+        numSelector.TabIndex = 3;
         // 
-        // Pop_Up
+        // Pop_UpProducto
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(384, 161);
-        Controls.Add(nudCantidad);
+        Controls.Add(numSelector);
         Controls.Add(btnCancelar);
         Controls.Add(btnCompletar);
         Controls.Add(lblText);
         ShowIcon = false;
         Text = "PopUp";
         Leave += Pop_Up_Leave;
-        ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numSelector).EndInit();
         ResumeLayout(false);
     }
 
-    private System.Windows.Forms.NumericUpDown nudCantidad;
+    private System.Windows.Forms.NumericUpDown numSelector;
 
     private System.Windows.Forms.Button btnCompletar;
     private System.Windows.Forms.Button btnCancelar;
