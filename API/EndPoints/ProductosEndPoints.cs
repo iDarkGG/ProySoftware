@@ -43,6 +43,11 @@ public static class ProductosEndPoints
             return producto.Count != 0 ? Results.Ok(producto) : Results.NotFound();
         });
         
+        app.MapGet("/api/Producto/Category/{category:int}", async (MyDbContext db, byte category) =>
+        {
+            var producto = await db.Productos.Where(x => x.Categoria  == category ).ToListAsync();
+            return producto.Count != 0 ? Results.Ok(producto) : Results.NotFound();
+        });
         
         return app;
     }

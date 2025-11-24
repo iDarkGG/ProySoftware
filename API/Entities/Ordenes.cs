@@ -12,4 +12,7 @@ public partial class Ordenes
     public DateTime? FechaOrden { get; set; }
 
     public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
+    
+    public virtual ICollection<Detalle_Orden> DetalleOrdenes { get; set; } = new List<Detalle_Orden>();
+
 }

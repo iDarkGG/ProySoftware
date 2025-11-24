@@ -32,19 +32,20 @@ public partial class MyDbContext : DbContext
     {
         modelBuilder.Entity<Detalle_Orden>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Detalle_Orden");
+            entity.HasKey(e => e.DetalleOrdenId).HasName("Detalle_Orden_pk");
 
+            entity.ToTable("Detalle_Orden");
+
+            entity.Property(e => e.DetalleOrdenId).HasColumnName("DetalleOrdenID");
             entity.Property(e => e.OrdenId).HasColumnName("OrdenID");
             entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
 
-            entity.HasOne(d => d.Orden).WithMany()
+            entity.HasOne(d => d.Orden).WithMany(p => p.DetalleOrdenes)
                 .HasForeignKey(d => d.OrdenId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Detalle_O__Orden__412EB0B6");
 
-            entity.HasOne(d => d.Producto).WithMany()
+            entity.HasOne(d => d.Producto).WithMany(p => p.DetalleOrdens)
                 .HasForeignKey(d => d.ProductoId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("Detalle_Orden_Productos_ProductoID_fk");
@@ -86,7 +87,6 @@ public partial class MyDbContext : DbContext
             entity.HasKey(e => e.ProductoId).HasName("ProductoID");
 
             entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
-            entity.Property(e => e.Categoria).HasMaxLength(50);
             entity.Property(e => e.ProductoImagen)
                 .HasMaxLength(255)
                 .HasColumnName("Producto_Imagen");

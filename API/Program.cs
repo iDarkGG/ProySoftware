@@ -1,3 +1,4 @@
+using API;
 using API.Context;
 using API.EndPoints;
 using Microsoft.EntityFrameworkCore;
@@ -10,8 +11,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MyDbContext>(Options =>
     Options.UseSqlServer(builder.Configuration.GetConnectionString("Conn")));
+
+builder.Services.AddSignalR();
+
+
 var app = builder.Build();
 
+app.MapHub<OrdersHub>("/ordersHub");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

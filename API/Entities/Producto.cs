@@ -13,7 +13,9 @@ public partial class Producto
 
     public string? ProductoImagen { get; set; }
 
-    public string? Categoria { get; set; }
+    public byte? Categoria { get; set; }
 
     public bool? Disponible { get; set; }
+
+    public virtual ICollection<Detalle_Orden> DetalleOrdens { get; set; } = new List<Detalle_Orden>();
 }

@@ -17,14 +17,14 @@ public static class OrdenesEndPoints
             return orden is not null ? Results.Ok(orden) : Results.NotFound();
         });
 
-        app.MapGet("/api/Ordenes/Status/{status:int}", async (MyDbContext db, int status) =>
+        app.MapGet("/api/Ordenes/GetByStatus/{status:int}", async (MyDbContext db, int status) =>
         {
             var orden = await db.Ordenes.Where(x => x.OrdenStatus == status).ToListAsync();
             
             return orden.Count != 0 ? Results.Ok(orden) : Results.NotFound();
         });
 
-        app.MapGet("/api/Ordenes/Detalles/{id:int}", async (MyDbContext db, int id) =>
+        app.MapGet("/api/Ordenes/GetDetalles/{id:int}", async (MyDbContext db, int id) =>
         {
             var orden = await db.Detalle_Orden.Where(x => x.OrdenId == id).Select(x => new Detalle_OrdenGET
             {
@@ -37,14 +37,20 @@ public static class OrdenesEndPoints
         });
 
 
-        app.MapPost("/api/Ordenes/NuevaOrden", async (MyDbContext db, Ordenes orden) =>
+        app.MapPost("/api/Ordenes/NuevaOrden", async (MyDbContext db, OrdenPOST orden) =>
         {
             if(orden is null) return Results.BadRequest();
+
+            var fill = new Ordenes
+            {
+                OrdenStatus = orden.OrdenStatus,
+                FechaOrden = orden.FechaOrden
+            };
             
-            db.Ordenes.Add(orden);
+            db.Ordenes.Add(fill);
             await db.SaveChangesAsync();
             
-            return Results.Ok(orden);
+            return Results.Ok(fill);
         });
 
         app.MapPost("/api/Ordenes/AddOrdenDetalles/{id:int}",
@@ -65,9 +71,25 @@ public static class OrdenesEndPoints
                 }
                 await db.SaveChangesAsync();
 
-                return Results.Created($"/api/Ordenes/{id}", orden);
+                return Results.Ok($"/api/Ordenes/{id}");
 
             });
+
+        app.MapPut("/api/Ordenes/UpdateOrder/{id:int}", async (MyDbContext DbContext, OrdenPOST update, int id) =>
+        {
+            var orden = await DbContext.Ordenes.FirstOrDefaultAsync(o => o.OrdenId == id);
+
+            if (orden is null) return Results.NotFound();
+            
+            if(update is null) return Results.BadRequest();
+            
+            orden.FechaOrden = update.FechaOrden;
+            orden.OrdenStatus = update.OrdenStatus;
+
+            await DbContext.SaveChangesAsync();
+            
+            return Results.Ok(orden);
+        });
         return app;
     }
 }

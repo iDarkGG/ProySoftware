@@ -9,7 +9,7 @@ public partial class ProductoPost
 
     public string? ProductoImagen { get; set; }
 
-    public string? Categoria { get; set; }
+    public byte? Categoria { get; set; }
 
     public bool? Disponible { get; set; }
 }
