@@ -7,6 +7,17 @@ using API.Entities;
 public partial class CajaUI : Form
 {
     HubConnection conn;
+
+    private static int _cant;
+    public enum TipoAccion
+    {
+        EDITAR = 1,
+        CANCELAR = 2,
+        BORRAR = 0
+    };
+    
+    private int _accion;
+    
     
     public CajaUI()
     {
@@ -14,8 +25,11 @@ public partial class CajaUI : Form
       Eventos.RefreshRequested += OnRefreshRequested;
       SignalR();
     }
-    
-    
+
+    public void ProductUpdate(int cantidad)
+    {
+        _cant = cantidad;
+    }
     
     private async void SignalR()
     {
@@ -124,7 +138,7 @@ public partial class CajaUI : Form
         }
  
     }
-
+    
 
     private void OnRefreshRequested()
     {
@@ -229,5 +243,38 @@ public partial class CajaUI : Form
     private void btnComidaRapida_Click(object sender, EventArgs e)
     {
         FormAsPanel(new FormPanel(2));
+    }
+
+
+    private void lstPedidos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+    {
+        if (e.RowIndex < 0) return;
+
+        using (var popup = new Pop_Up_Editar(Productos[e.RowIndex].Cantidad))
+        {
+            var result = popup.ShowDialog();
+
+            switch (result)
+            {
+                //Donde OK es Borrar Producto del pedido
+                case DialogResult.OK:
+                    Productos.Remove(Productos[e.RowIndex]);
+                    OnRefreshRequested();
+                    break;
+                //Donde Abort es Editar Producto
+                case DialogResult.Abort:
+                    Productos[e.RowIndex].Cantidad = _cant;
+                    OnRefreshRequested();
+                    break;
+                //Donde Cancel es Cancelar Edicion
+                default:
+                    popup.Close();
+                    break;
+                    
+            }
+            
+            
+        }
+        
     }
 }

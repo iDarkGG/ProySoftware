@@ -8,6 +8,7 @@ public partial class CocinaUI : Form
 {
     private List<Ordenes> ordenes;
     private List<Producto> productos;
+    private HubConnection conn;
     public CocinaUI()
     {
         InitializeComponent();
@@ -16,7 +17,7 @@ public partial class CocinaUI : Form
 
     private async void SignalR()
     {
-        var conn = new HubConnectionBuilder().WithUrl("https://localhost:5131/ordersHub").Build();
+        conn = new HubConnectionBuilder().WithUrl("https://localhost:5131/ordersHub").Build();
         try
         {
             conn.On("UpdateOrders", () => { this.Invoke(() => { DisplayOrder(); }); });
@@ -251,6 +252,11 @@ public partial class CocinaUI : Form
                              bool success = await UpdateOrdenStatus(newOrden,  Convert.ToInt32(control.Tag));
                              if (success)
                              {
+                                 if (conn.State == HubConnectionState.Connected)
+                                 {
+                                     await conn.SendAsync("RefreshCocina");
+                                 }
+                                 
                                  OrderPanel.Controls.Remove(control);
                                  OrderPanel.Refresh();
                              }
@@ -276,6 +282,11 @@ public partial class CocinaUI : Form
                             bool success = await UpdateOrdenStatus(newOrden,  Convert.ToInt32(control.Tag));
                             if (success)
                             {
+                                if (conn.State == HubConnectionState.Connected)
+                                {
+                                    await conn.SendAsync("RefreshCocina");
+                                }
+                                
                                 OrderPanel.Controls.Remove(control);
                                 OrderPanel.Refresh();
                             }

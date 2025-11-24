@@ -148,8 +148,10 @@ partial class CajaUI
         lstPedidos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
         lstPedidos.Location = new System.Drawing.Point(3, 44);
         lstPedidos.Name = "lstPedidos";
+        lstPedidos.ReadOnly = true;
         lstPedidos.Size = new System.Drawing.Size(294, 543);
         lstPedidos.TabIndex = 4;
+        lstPedidos.CellDoubleClick += lstPedidos_CellDoubleClick;
         // 
         // btnConfirmar
         // 

@@ -2,7 +2,7 @@
 
 namespace Project_UI;
 
-partial class Pop_Up
+partial class Pop_Up_Editar
 {
     /// <summary>
     /// Required designer variable.
@@ -33,7 +33,10 @@ partial class Pop_Up
     {
         lblText = new System.Windows.Forms.Label();
         btnCompletar = new System.Windows.Forms.Button();
+        btnEliminar = new System.Windows.Forms.Button();
         btnCancelar = new System.Windows.Forms.Button();
+        numberSelect = new System.Windows.Forms.NumericUpDown();
+        ((System.ComponentModel.ISupportInitialize)numberSelect).BeginInit();
         SuspendLayout();
         // 
         // lblText
@@ -49,7 +52,7 @@ partial class Pop_Up
         // btnCompletar
         // 
         btnCompletar.BackColor = System.Drawing.Color.Lime;
-        btnCompletar.Location = new System.Drawing.Point(62, 110);
+        btnCompletar.Location = new System.Drawing.Point(12, 110);
         btnCompletar.Name = "btnCompletar";
         btnCompletar.Size = new System.Drawing.Size(91, 39);
         btnCompletar.TabIndex = 1;
@@ -57,33 +60,59 @@ partial class Pop_Up
         btnCompletar.UseVisualStyleBackColor = false;
         btnCompletar.Click += btnCompletar_Click;
         // 
+        // btnEliminar
+        // 
+        btnEliminar.BackColor = System.Drawing.Color.Red;
+        btnEliminar.Location = new System.Drawing.Point(153, 110);
+        btnEliminar.Name = "btnEliminar";
+        btnEliminar.Size = new System.Drawing.Size(91, 39);
+        btnEliminar.TabIndex = 2;
+        btnEliminar.Text = "Eliminar";
+        btnEliminar.UseVisualStyleBackColor = false;
+        btnEliminar.Click += btnCancelar_Click;
+        // 
         // btnCancelar
         // 
-        btnCancelar.BackColor = System.Drawing.Color.Red;
-        btnCancelar.Location = new System.Drawing.Point(228, 110);
+        btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke;
+        btnCancelar.Location = new System.Drawing.Point(281, 110);
         btnCancelar.Name = "btnCancelar";
         btnCancelar.Size = new System.Drawing.Size(91, 39);
-        btnCancelar.TabIndex = 2;
+        btnCancelar.TabIndex = 3;
         btnCancelar.Text = "Cancelar";
         btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Click += btnCancelar_Click;
+        btnCancelar.Click += button1_Click;
         // 
-        // Pop_Up
+        // numberSelect
+        // 
+        numberSelect.Location = new System.Drawing.Point(73, 62);
+        numberSelect.Name = "numberSelect";
+        numberSelect.Size = new System.Drawing.Size(233, 23);
+        numberSelect.TabIndex = 4;
+        // 
+        // Pop_Up_Editar
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(384, 161);
+        Controls.Add(numberSelect);
         Controls.Add(btnCancelar);
+        Controls.Add(btnEliminar);
         Controls.Add(btnCompletar);
         Controls.Add(lblText);
         ShowIcon = false;
         Text = "PopUp";
+        Load += Pop_Up_Load;
         Leave += Pop_Up_Leave;
+        ((System.ComponentModel.ISupportInitialize)numberSelect).EndInit();
         ResumeLayout(false);
     }
 
-    private System.Windows.Forms.Button btnCompletar;
+    private System.Windows.Forms.NumericUpDown numberSelect;
+
     private System.Windows.Forms.Button btnCancelar;
+
+    private System.Windows.Forms.Button btnCompletar;
+    private System.Windows.Forms.Button btnEliminar;
 
     private System.Windows.Forms.Label lblText;
 

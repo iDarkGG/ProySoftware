@@ -18,6 +18,11 @@ public class OrdersHub : Hub
     {
         await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
     }
-    
+
+
+    public async Task RefreshCocina()
+    {
+        await Clients.Group("Cocina").SendAsync("RefreshCocina");
+    }
     
 }
