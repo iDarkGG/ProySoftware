@@ -234,7 +234,8 @@ public partial class CocinaUI : Form
 
         using (var popup = new Pop_Up())
         {
-            if (popup.ShowDialog() == DialogResult.OK)
+            var result = popup.ShowDialog();
+            if (result == DialogResult.OK)
             {
                 foreach (Control control in OrderPanel.Controls )
                 {
@@ -259,7 +260,7 @@ public partial class CocinaUI : Form
                    
                 }
             }
-            else
+            else if(result == DialogResult.Abort)
             {
                 foreach (Control control in OrderPanel.Controls )
                 {
@@ -283,6 +284,10 @@ public partial class CocinaUI : Form
                     }
                    
                 }
+            }
+            else
+            {
+                popup.Close();
             }
         }
     }

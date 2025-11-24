@@ -22,7 +22,12 @@ public partial class Pop_Up : Form
 
     private void btnCancelar_Click(object sender, EventArgs e)
     {
-        this.DialogResult = DialogResult.Cancel;
+        this.DialogResult = DialogResult.Abort;
         this.Close();
+    }
+
+    private void Pop_Up_Load(object sender, EventArgs e)
+    {
+        
     }
 }

@@ -78,6 +78,7 @@ partial class Pop_Up
         Controls.Add(lblText);
         ShowIcon = false;
         Text = "PopUp";
+        Load += Pop_Up_Load;
         Leave += Pop_Up_Leave;
         ResumeLayout(false);
     }
