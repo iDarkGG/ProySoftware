@@ -30,4 +30,5 @@ public partial class Pop_Up : Form
     {
         
     }
+
 }
