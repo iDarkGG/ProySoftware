@@ -46,7 +46,7 @@ partial class Pop_Up_Editar
         lblText.Name = "lblText";
         lblText.Size = new System.Drawing.Size(360, 33);
         lblText.TabIndex = 0;
-        lblText.Text = "Seleccione Accion";
+        lblText.Text = "Actualizar Producto";
         lblText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
         // btnCompletar
@@ -56,7 +56,7 @@ partial class Pop_Up_Editar
         btnCompletar.Name = "btnCompletar";
         btnCompletar.Size = new System.Drawing.Size(91, 39);
         btnCompletar.TabIndex = 1;
-        btnCompletar.Text = "Completar";
+        btnCompletar.Text = "Actualizar";
         btnCompletar.UseVisualStyleBackColor = false;
         btnCompletar.Click += btnCompletar_Click;
         // 

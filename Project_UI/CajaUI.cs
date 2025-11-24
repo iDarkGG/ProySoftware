@@ -266,7 +266,7 @@ public partial class CajaUI : Form
                     Productos[e.RowIndex].Cantidad = _cant;
                     OnRefreshRequested();
                     break;
-                //Donde Cancel es Cancelar Edicion
+                //Donde Cualquier otra cosa es Cancelar Edicion
                 default:
                     popup.Close();
                     break;

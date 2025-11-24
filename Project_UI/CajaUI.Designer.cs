@@ -149,6 +149,7 @@ partial class CajaUI
         lstPedidos.Location = new System.Drawing.Point(3, 44);
         lstPedidos.Name = "lstPedidos";
         lstPedidos.ReadOnly = true;
+        lstPedidos.RowHeadersVisible = false;
         lstPedidos.Size = new System.Drawing.Size(294, 543);
         lstPedidos.TabIndex = 4;
         lstPedidos.CellDoubleClick += lstPedidos_CellDoubleClick;

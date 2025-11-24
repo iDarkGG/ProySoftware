@@ -66,4 +66,6 @@ public partial class Pop_Up_Editar : Form
         this.DialogResult = DialogResult.Cancel;
         this.Close();
     }
+
+
 }
