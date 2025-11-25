@@ -17,10 +17,11 @@ public partial class CocinaUI : Form
 
     private async void SignalR()
     {
-        conn = new HubConnectionBuilder().WithUrl("https://localhost:5131/ordersHub").Build();
+        conn = new HubConnectionBuilder().WithUrl("http://localhost:5131/ordersHub").Build();
         try
         {
             conn.On("UpdateOrders", () => { this.Invoke(() => { DisplayOrder(); }); });
+            conn.On("RefreshCocina", () => { this.Invoke(() => { DisplayOrder(); }); });
 
             await conn.StartAsync();
             await conn.SendAsync("JoinGroup", "Cocina");
@@ -306,8 +307,7 @@ public partial class CocinaUI : Form
     private void CocinaUI_Load(object sender, EventArgs e)
     {
         this.WindowState = FormWindowState.Maximized;
-
-
+        OrderPanel.AutoScroll = true;
 
         DisplayOrder();
 
