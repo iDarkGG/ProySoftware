@@ -117,6 +117,7 @@ public partial class FormPanel : Form
         {
             if (popup.ShowDialog() == DialogResult.OK)
             {
+                
                 foreach (Control control in pnlProductos.Controls )
                 {
                     if (control is Panel)
